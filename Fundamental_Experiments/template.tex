@@ -1,0 +1,233 @@
+% !TeX program = xelatex
+% Compile from this directory: latexmk -xelatex template.tex
+\documentclass[12pt]{article}
+
+% Page size and margins follow the supplied Word reference (US Letter).
+\usepackage[letterpaper,left=1.25in,right=1.25in,top=1in,bottom=1in]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+% Portable Chinese support, for example when filling in names.
+\usepackage{xeCJK}
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf]
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{fig/}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.3em}
+\titleformat{\section}{\fontsize{14}{17}\selectfont\bfseries}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\captionsetup{font=small,labelfont=bf,labelsep=period}
+\definecolor{courseblue}{HTML}{0070C0}
+
+% ---------- Edit these cover fields ----------
+\newcommand{\University}{Southern University of Science and Technology}
+\newcommand{\Department}{Department of Materials Science and Engineering}
+\newcommand{\Course}{Experiments for Fundamental of Materials Science and Engineering MSE002}
+\newcommand{\LabNumber}{[Number]}
+\newcommand{\ExperimentTitle}{[Experiment title]}
+\newcommand{\StudentName}{[Your name]}
+\newcommand{\StudentID}{[Your student ID]}
+\newcommand{\TeamMembers}{[Team member names]}
+\newcommand{\ExperimentDate}{[YYYY/MM/DD]}
+\newcommand{\SubmissionDate}{[YYYY/MM/DD]}
+
+\hypersetup{pdftitle={Lab Report Template},pdfauthor={},pdfsubject={Reusable laboratory report template}}
+
+\begin{document}
+
+% ==============================================================================
+%                           封面部分开始 / COVER START
+% ==============================================================================
+% Editable cover: no external PDF or personal information is required.
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \thispagestyle{empty}
+  {\noindent\fontsize{15}{18}\selectfont\bfseries
+   \University\par
+   \noindent\Department\par}
+  \vspace{1.7cm}
+  \begin{center}
+    {\fontsize{18}{22}\selectfont\bfseries\color{courseblue}\Course\par}
+    \vspace{1.7cm}
+    {\fontsize{28}{34}\selectfont\bfseries Lab Report\par}
+    \vspace{0.6cm}
+    {\fontsize{22}{27}\selectfont\bfseries Lab \LabNumber: \ExperimentTitle\par}
+  \end{center}
+  \vspace{1.8cm}
+  \begin{flushright}
+    \fontsize{15}{21}\selectfont\bfseries
+    Name: \StudentName\par
+    Student ID: \StudentID\par
+    Team members: \TeamMembers\par
+    Date of Experiment: \ExperimentDate\par
+    Date of submission: \SubmissionDate\par
+  \end{flushright}
+  \vfill
+\end{titlepage}
+\setcounter{page}{1}
+\hypersetup{pageanchor=true}
+
+% ==============================================================================
+%                           封面部分结束 / COVER END
+% ==============================================================================
+
+\section{Objectives}
+State the purpose of the experiment and identify the quantities, relationships,
+or techniques to be investigated. Replace the following items with specific,
+measurable objectives.
+\begin{enumerate}
+  \item Describe the scientific question and the property to be measured.
+  \item Identify the experimental method and the skill to be developed.
+  \item State the comparison or hypothesis to be evaluated.
+\end{enumerate}
+
+\section{Principles}
+Explain the theory needed to interpret the experiment in your own words.
+Define the quantities and assumptions, and cite the sources used~\cite{reference}.
+Include only equations relevant to the analysis. For example, the sample mean is
+\begin{equation}
+  \overline{x}=\frac{1}{n}\sum_{i=1}^{n}x_i,
+  \label{eq:mean}
+\end{equation}
+where $x_i$ is the $i$th measurement and $n$ is the number of measurements.
+Replace or extend Eq.~\eqref{eq:mean} with the equations used in your experiment.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.62\linewidth]{figA.jpg}
+  \caption{Replace Fig A with a diagram of the experimental principle.
+  Define the components and symbols in the caption.}
+  \label{fig:principle}
+\end{figure}
+
+\section{Experimental (Materials and Apparatus)}
+\subsection{Materials}
+List the materials, specimen identifiers, compositions, dimensions, and preparation
+or storage conditions needed to reproduce the experiment. Specify grades,
+purities, and suppliers where relevant.
+
+\subsection{Apparatus}
+Identify each instrument, its model, measurement range, resolution, and calibration
+status where relevant. Explain the arrangement shown in Fig.~\ref{fig:apparatus}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.62\linewidth]{figB.jpg}
+  \caption{Replace Fig B with a photograph or schematic of the apparatus.
+  Identify the instrument and the measurement arrangement.}
+  \label{fig:apparatus}
+\end{figure}
+
+\section{Experimental procedure}
+Describe what was actually done in chronological order. Include operating
+conditions, calibration, repeated measurements, and any deviations from the
+laboratory instructions.
+\begin{enumerate}
+  \item Describe specimen preparation and the initial instrument checks.
+  \item Specify the controlled variables, settings, and measurement sequence.
+  \item Explain how observations were recorded and how many repeats were made.
+  \item Describe shutdown, cleaning, and disposal as applicable.
+\end{enumerate}
+
+\section{Results and discussion}
+\textbf{This is a key section of the report.} Present the measurements and explain
+what they show. Use descriptive captions and refer to every figure and table in
+the text. Replace all placeholder images and entries with your own results.
+
+\subsection{Results and calculations}
+Organize measured and calculated quantities with units and suitable precision.
+Table~\ref{tab:results} illustrates a results table; bracketed entries are fields
+to complete, not measurements. Show the calculation method and report uncertainty
+or variability where appropriate.
+\begin{table}[htbp]
+  \centering
+  \caption{Replace this caption with the measured quantity and test conditions.}
+  \label{tab:results}
+  \begin{tabularx}{\linewidth}{@{}lXXX@{}}
+    \toprule
+    Sample & Condition [unit] & Mean [unit] & SD [unit] \\
+    \midrule
+    {[Sample 1]} & [Condition] & [Mean] & [SD] \\
+    {[Sample 2]} & [Condition] & [Mean] & [SD] \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.62\linewidth]{figC.jpg}
+  \caption{Replace Fig C with a results plot. Label the axes with quantities
+  and units; define symbols, sample size, and error bars where used.}
+  \label{fig:results}
+\end{figure}
+
+\subsection{Interpretation and sources of error}
+Explain the trends in Fig.~\ref{fig:results} using the principles above. Compare
+with expected behavior or cited literature and discuss disagreements. Identify
+specific sources of error, their likely effects, and practical improvements.
+Use Fig.~\ref{fig:comparison} for an additional comparison or observation if needed.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.62\linewidth]{figD.jpg}
+  \caption{Replace Fig D with a comparison plot, specimen image, or other
+  observation that supports the discussion. Explain the relevant features.}
+  \label{fig:comparison}
+\end{figure}
+\FloatBarrier
+
+\section{Conclusion}
+\textbf{This is a key section of the report.} Summarize the main findings and
+state whether the objectives were achieved. Include the most relevant numerical
+results with units and uncertainty when available. State the main limitation;
+keep the conclusions supported by the results already presented.
+
+\section{Questions}
+\textbf{This is a key section of the report.} Reproduce each assigned question
+and answer it directly. Include reasoning, calculations, or references as needed.
+\begin{enumerate}
+  \item \textbf{[Insert the assigned question.]}
+  \par\noindent Answer: [Write your answer and supporting explanation here.]
+  \item \textbf{[Insert the next assigned question.]}
+  \par\noindent Answer: [Write your answer and supporting explanation here.]
+\end{enumerate}
+
+% Optional references: replace the placeholder below with a real source.
+% Remove both this environment and its citation if no references are used.
+\begin{thebibliography}{9}
+  \bibitem{reference}
+  [Author(s)]. [Title]. \textit{[Journal or publisher]}, [year],
+  [volume(issue)], [pages]. [DOI or URL, if available].
+\end{thebibliography}
+
+% Keep attachments at the END, as requested by the Word reference.
+\clearpage
+\appendix
+\section{Original datasheet}
+Attach the original experimental datasheet at the end of the report. Replace
+the table below with the actual records, or insert readable scans of all required
+pages. Preserve sample identifiers, measurement units, test conditions, dates,
+and signatures where required.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Replace this table with the original measurement records.}
+  \begin{tabularx}{\linewidth}{@{}lXXX@{}}
+    \toprule
+    Record & Sample ID & Reading [unit] & Conditions / notes \\
+    \midrule
+    {[Record 1]} & [ID] & [Reading] & [Notes] \\
+    {[Record 2]} & [ID] & [Reading] & [Notes] \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\end{document}

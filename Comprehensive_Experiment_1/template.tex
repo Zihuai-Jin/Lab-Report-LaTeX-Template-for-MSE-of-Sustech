@@ -1,0 +1,236 @@
+% !TeX program = xelatex
+% Compile from this directory: latexmk -xelatex template.tex
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{fontspec}
+% Times New Roman matches the Word reference; the fallback works on Overleaf.
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{fig/}}
+\setstretch{1.25}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{4pt}
+\widowpenalty=10000
+\clubpenalty=10000
+\titleformat{\section}{\bfseries\fontsize{14}{21}\selectfont}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\bfseries\fontsize{12}{18}\selectfont}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\captionsetup{font=small,labelsep=period}
+\captionsetup[table]{position=top}
+\setlist[enumerate]{label=(\arabic*),leftmargin=2em,itemsep=3pt,topsep=4pt}
+\hypersetup{pdftitle={Laboratory Report Template},pdfauthor={},pdfsubject={Reusable laboratory report template}}
+
+\fancypagestyle{cover}{%
+    \fancyhf{}
+    \fancyhead[C]{\bfseries\fontsize{10}{12}\selectfont
+        \InstitutionName\\\DepartmentName}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
+\setlength{\headheight}{26pt}
+\setlength{\headsep}{16pt}
+
+% ---------- Cover fields: replace the values below ----------
+\newcommand{\InstitutionName}{South University of Science and Technology of China}
+\newcommand{\DepartmentName}{Department of Materials science and Engineering}
+\newcommand{\CourseTitle}{Comprehensive Experiments of Materials I}
+\newcommand{\ExperimentTitle}{Lab [number]: [Experiment title]}
+\newcommand{\ClassNumber}{[Class number]}
+\newcommand{\ListNumber}{[List number]}
+\newcommand{\StudentName}{[Your name]}
+\newcommand{\StudentID}{[Your student ID]}
+\newcommand{\TeamMembers}{[Names of team members]}
+\newcommand{\ExperimentDate}{[YYYY.MM.DD]}
+\newcommand{\SubmissionDate}{[YYYY.MM.DD]}
+
+\begin{document}
+
+% ==============================================================================
+%                           封面部分开始 / COVER START
+% ==============================================================================
+% Editable reconstruction of the cover in Lab report template.docx.
+\begin{titlepage}
+    \thispagestyle{cover}
+    \centering
+    \vspace*{2.3cm}
+    {\bfseries\fontsize{18}{24}\selectfont \CourseTitle\par}
+    \vspace{1.7cm}
+    {\bfseries\fontsize{16}{22}\selectfont \ExperimentTitle\par}
+    \vspace{4.4cm}
+    \begin{flushright}
+    \begin{minipage}{0.60\textwidth}
+        \raggedright
+        \bfseries\fontsize{14}{21}\selectfont
+        Class No.: \ClassNumber\par
+        Name list number: \ListNumber\par
+        \vspace{1.5cm}
+        Name: \StudentName\par
+        Student ID: \StudentID\par
+        Team member: \TeamMembers\par
+        Date of experiment: \ExperimentDate\par
+        Date of submission: \SubmissionDate\par
+    \end{minipage}
+    \end{flushright}
+    \vfill
+\end{titlepage}
+\setcounter{page}{1}
+
+% ==============================================================================
+%                           封面部分结束 / COVER END
+% ==============================================================================
+
+\section*{Abstract}
+Write a concise summary of the experiment. State the objective, the main methods,
+the principal quantitative results, and the conclusion. Replace this guidance
+with a self-contained paragraph after completing the report.
+
+\section{Introduction}
+\subsection{Background and principles}
+Explain the scientific background and the principles needed to understand the
+experiment. Define important terms and symbols, and cite relevant sources using
+numbered citations such as Ref.~\cite{reference-placeholder}. Introduce each
+figure in the text before it appears, as illustrated in Figure~\ref{fig:background}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figA.jpg}
+    \caption{Replace with a description of the background diagram or principle.}
+    \label{fig:background}
+\end{figure}
+
+\subsection{Objective}
+State the experimental objective or question. Explain which variables will be
+controlled or compared, what will be measured, and how the measurements address
+the objective.
+
+\section{Materials and Apparatus (or Equipment)}
+\subsection{Materials}
+List the materials, reagents, and samples used. Include relevant grades,
+concentrations, quantities, and suppliers where needed for reproducibility.
+Replace the entries below with the actual materials.
+\begin{itemize}[leftmargin=2em,itemsep=0pt]
+    \item {}[Material or reagent name], [grade or purity], [quantity or concentration].
+    \item {}[Sample name], [composition or preparation details].
+\end{itemize}
+
+\subsection{Apparatus}
+List the instruments and equipment. Give the manufacturer, model, measurement
+range, or resolution where relevant. Replace the entries below with the actual
+apparatus.
+\begin{itemize}[leftmargin=2em,itemsep=0pt]
+    \item {}[Instrument name], [manufacturer and model].
+    \item {}[Equipment name], [relevant specification].
+\end{itemize}
+
+\section{Experimental Procedures}
+\subsection{Sample preparation}
+Describe the work in chronological order with enough detail to reproduce it.
+Record quantities, conditions, durations, and any departures from the prescribed
+method. Replace these example steps and the diagram in Figure~\ref{fig:procedure}.
+\begin{enumerate}
+    \item Describe the initial preparation, including material quantities and conditions.
+    \item Describe the processing, treatment, and collection of the sample.
+\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figB.jpg}
+    \caption{Replace with a description of the experimental workflow or setup.}
+    \label{fig:procedure}
+\end{figure}
+
+\subsection{Characterization and measurement}
+Describe sample handling, instrument settings, calibration, measurement
+conditions, and the number of repeats. Explain how raw measurements are
+converted into the reported quantities. Define every symbol and include units.
+The equation below demonstrates a numbered equation and cross-reference:
+\begin{equation}
+    y = ax + b.
+    \label{eq:example}
+\end{equation}
+Replace Equation~\eqref{eq:example} with the experimental relation. Here, $x$ and
+$y$ are the input and response, $a$ is the slope, and $b$ is the intercept.
+The equation is a formatting example only.
+
+\section{Results and discussion}
+\subsection{Observations and characterization}
+Present the main observations and describe the evidence in
+Figure~\ref{fig:results}. Explain trends, compare conditions, and connect the
+results with the principles introduced earlier. Distinguish measured evidence
+from proposed explanations. Replace the placeholder image with an actual
+measurement, photograph, or characterization plot.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figC.jpg}
+    \caption{Replace with a description of the observed or characterized results.}
+    \label{fig:results}
+\end{figure}
+
+\subsection{Quantitative analysis and uncertainty}
+Present the relevant numerical results in Table~\ref{tab:results}, with units
+in the headings. Replace every bracketed entry with a measurement or a calculated
+value. State the uncertainty or repeatability and explain the calculation method.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Replace with a description of the measured or calculated data.}
+    \label{tab:results}
+    \begin{tabularx}{\linewidth}{@{}lXXX@{}}
+        \toprule
+        Sample & Input [unit] & Response [unit] & Uncertainty [unit] \\
+        \midrule
+        {[Sample 1]} & {[Value]} & {[Value]} & {[Value]} \\
+        {[Sample 2]} & {[Value]} & {[Value]} & {[Value]} \\
+        {[Sample 3]} & {[Value]} & {[Value]} & {[Value]} \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Use Figure~\ref{fig:comparison} to compare measurements, a fitted model, or a
+reference result. Identify the axes, units, legend, and error bars in the
+replacement figure. Discuss possible sources of error and limitations, and
+explain whether the evidence supports the experimental objective.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\linewidth]{figD.jpg}
+    \caption{Replace with a description of the quantitative comparison or analysis.}
+    \label{fig:comparison}
+\end{figure}
+
+\section{Conclusion}
+Summarize the main findings and answer the objective stated in the Introduction.
+Include the key quantitative results where appropriate. State the main
+limitations and a practical improvement. Do not introduce new measurements in
+this section.
+
+% Keep one numbered References heading; the bibliography's automatic heading
+% is suppressed locally to avoid the duplicate heading in the original report.
+\section{References}
+\begingroup
+\renewcommand{\section}[2]{}%
+\begin{thebibliography}{9}
+    \bibitem{reference-placeholder}
+    [Author(s)]. [Article or book title]. \emph{[Journal or publisher]}.
+    [Year]; [Volume]([Issue]): [Pages]. [DOI or URL, if available].
+\end{thebibliography}
+\endgroup
+
+\section{Questions}
+\begin{enumerate}
+    \item \textbf{[Insert the assigned question.]}
+
+    \textbf{Answer:} Replace with a reasoned answer. Include a derivation,
+    evidence, or a literature citation as appropriate.
+\end{enumerate}
+
+\end{document}

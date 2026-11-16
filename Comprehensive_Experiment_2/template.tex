@@ -1,0 +1,250 @@
+% !TeX program = xelatex
+% Compile from this directory: latexmk -xelatex template.tex
+% All paths are relative to this template directory.
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm,headheight=26pt,headsep=12pt]{geometry}
+\usepackage{fontspec}
+% Times New Roman is the required submission font. The fallback supports TeX-only systems.
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{%
+  \setmainfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf,BoldItalicFont=texgyretermes-bolditalic.otf]
+  \PackageWarningNoLine{report-template}{Times New Roman unavailable. Install it for submission}}
+\usepackage{amsmath,siunitx,graphicx,booktabs,tabularx}
+\usepackage{caption,subcaption,enumitem,titlesec,fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{fig/}}
+\hypersetup{pdftitle={Laboratory Report Template},pdfauthor={},pdfsubject={Reusable laboratory report template}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\AtBeginDocument{\fontsize{12pt}{20pt}\selectfont}
+\setlist[enumerate]{label=(\arabic*),leftmargin=2.2em,itemsep=0pt,topsep=4pt}
+\titleformat{\section}{\bfseries\fontsize{14pt}{20pt}\selectfont}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\bfseries\fontsize{12pt}{20pt}\selectfont}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+\captionsetup{font={small},labelfont=normalfont,labelsep=period}
+\captionsetup[figure]{name=Fig.,position=bottom}
+\captionsetup[table]{position=top}
+\pagestyle{fancy}
+\fancyhf{}
+% Header wording follows the supplied departmental PDF.
+\fancyhead[C]{\fontsize{10.5pt}{12pt}\selectfont\bfseries
+ Southern University of Science and Technology of China\\
+ Department of Material Science and Technology}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ---------- Fill in these fields ----------
+\newcommand{\CourseName}{Course Name}
+\newcommand{\ExperimentNumber}{X}
+\newcommand{\ExperimentTitle}{Experiment Title}
+\newcommand{\StudentName}{Student Name}
+\newcommand{\StudentID}{Student ID}
+\newcommand{\ExperimentDate}{YYYY-MM-DD}
+\newcommand{\SubmissionDate}{YYYY-MM-DD}
+\newcommand{\TeamMembers}{Team members, if any}
+\newcommand{\ClassNumber}{Class number}
+\newcommand{\ListNumber}{Name list number}
+\begin{document}
+
+% ==============================================================================
+%                           封面部分开始 / COVER START
+% ==============================================================================
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{fancy}
+\fancyfoot[C]{}
+% Cover layout and field order follow Lab report template.docx.
+\fancyhead[C]{\fontsize{10.5pt}{12pt}\selectfont\bfseries
+ South University of Science and Technology of China\\
+ Department of Materials science and Engineering}
+\vspace*{1.1cm}
+\begin{center}
+{\fontsize{18pt}{24pt}\selectfont\bfseries \CourseName\par}
+\vspace{0.8cm}
+{\fontsize{18pt}{24pt}\selectfont\bfseries
+ Lab \ExperimentNumber: \ExperimentTitle\par}
+\end{center}
+\vspace{3cm}
+\noindent\hfill
+\begin{minipage}{0.58\textwidth}
+\raggedright
+\fontsize{14pt}{22pt}\selectfont\bfseries
+Class No.: \ClassNumber\par
+Name list number: \ListNumber\par
+\vspace{1.3cm}
+Name: \StudentName\par
+Student ID: \StudentID\par
+Team member: \TeamMembers\par
+Date of experiment: \ExperimentDate\par
+Date of submission: \SubmissionDate\par
+\end{minipage}
+\vfill
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\setcounter{page}{1}
+
+% ==============================================================================
+%                           封面部分结束 / COVER END
+% ==============================================================================
+
+\section{Objectives}
+\begin{enumerate}
+\item State the theory or physical principle to be examined.
+\item Identify the preparation, measurement, or analysis skills to be acquired.
+\item State the sample or performance target specified in the experiment handout.
+\end{enumerate}
+
+\section{Principles}
+\subsection{Background and governing relation}
+Explain the essential scientific background in your own words. Define the
+quantities used in the analysis and cite the sources of equations or borrowed
+ideas. Keep the complete principles section within one page, including figures.
+Equation~\eqref{eq:example} demonstrates an editable, numbered equation.
+\begin{equation}
+ y = ax+b.
+ \label{eq:example}
+\end{equation}
+Here $x$ is the independent variable, $y$ is the measured response, $a$ is the
+slope, and $b$ is the intercept. Specify the units of each quantity for the actual
+experiment and replace this illustrative relation with the governing equation.
+
+\subsection{Experimental principle or setup}
+Replace placeholder A in Fig.~\ref{fig:principle} with a labelled schematic of
+the experimental principle or setup. Explain the components and signal path.
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.75\linewidth]{figA.jpg}
+ \caption{Placeholder for a principle or setup schematic. Replace image A
+ with the experimental schematic and describe its components.}
+ \label{fig:principle}
+\end{figure}
+\clearpage
+
+\section{Experimental materials and setups}
+\subsection{Materials}
+List the chemicals, samples, and consumables with their purity, concentration,
+and dimensions. Use correct chemical subscripts and units, for example H$_2$O
+and \SI{20}{\milli\liter}. Replace these examples with your materials.
+
+\subsection{Apparatus and tools}
+List the instruments, model numbers, ranges, and tools. State the calibration
+or resolution when it affects the results.
+
+\section{Experimental procedures}
+\subsection{Sample preparation}
+\begin{enumerate}
+\item Describe the initial preparation and sample labels.
+\item Record the quantities, temperatures, durations, and settings actually used
+in class, including changes to handout parameters.
+\item Describe subsequent treatment, storage, and observations in sequence.
+\end{enumerate}
+
+\subsection{Measurement and data processing}
+\begin{enumerate}
+\item Describe instrument setup, calibration, and the measurement conditions.
+\item State the measurement sequence, repeat count, and how raw data were saved.
+\item Explain data correction, fitting, and uncertainty estimation. Summarize the
+sequence in Fig.~\ref{fig:workflow}.
+\end{enumerate}
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.60\linewidth]{figB.jpg}
+ \caption{Placeholder for an experimental workflow. Replace image B with the
+ actual operations and processing conditions.}
+ \label{fig:workflow}
+\end{figure}
+\clearpage
+
+\section{Results and discussion}
+\subsection{Presentation of results}
+Organize the measured results into a three-line table such as
+Table~\ref{tab:results}. Place the table number and a concise title above the
+table. Give the symbol and unit of every physical quantity. Transcribe raw
+records into a typeset table and retain the original records for the submission
+appendix. Replace all bracketed entries with measured values.
+\begin{table}[htbp]
+ \centering
+ \caption{Example structure for measured results. Bracketed entries are placeholders.}
+ \label{tab:results}
+ \begin{tabularx}{\linewidth}{@{}Xccc@{}}
+ \toprule
+ Sample & Time $t$ / \si{\second} & Response $y$ / \si{\volt} &
+ Uncertainty $u_y$ / \si{\volt}\\
+ \midrule
+ Sample 1 & [value] & [value] & [value]\\
+ Sample 2 & [value] & [value] & [value]\\
+ Sample 3 & [value] & [value] & [value]\\
+ \bottomrule
+ \end{tabularx}
+\end{table}
+
+Figure~\ref{fig:results} demonstrates a two-panel layout. Use readable axis
+labels with symbols and units. Explain error bars and the number of repeats in
+the caption. For photographs or micrographs, include a calibrated scale bar and
+magnification. Replace the letter placeholders C and D with experimental plots
+or images and update the captions accordingly.
+\begin{figure}[htbp]
+ \centering
+ \begin{subfigure}[t]{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{figC.jpg}
+  \caption{Placeholder C for a result plot.}
+  \label{fig:plot}
+ \end{subfigure}\hfill
+ \begin{subfigure}[t]{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{figD.jpg}
+  \caption{Placeholder D for an experimental image.}
+  \label{fig:image}
+ \end{subfigure}
+ \caption{Placeholders for a two-panel result figure. Replace C and D with
+ experimental results. Describe the error bars, sample size, annotations,
+ and imaging conditions relevant to the completed figure.}
+ \label{fig:results}
+\end{figure}
+
+\subsection{Interpretation and comparison}
+Describe the main trends and compare the measured values with the theoretical
+prediction or expected behaviour. Use quantitative comparisons where possible.
+Explain discrepancies and unexpected observations using the experimental
+conditions and relevant scientific principles. Address the discussion topics
+specified in the experiment handout.
+
+\subsection{Error analysis}
+Identify systematic and random sources of error, explain their effect on the
+results, and estimate their magnitude where possible. Describe practical steps
+to reduce the dominant errors. State the limitations that affect the conclusion.
+
+\section{Conclusion}
+Replace this paragraph with a concise summary of the experiment and its main
+findings. State the method, principal quantitative results, comparison with the
+objectives or theory, and the supported conclusion. Use one or two paragraphs.
+The departmental guidance gives an approximate length of 300 characters, so
+keep the English conclusion similarly concise and follow any course-specific limit.
+
+\section{Questions}
+\subsection*{(1) Replace with the full question from the handout}
+\noindent\textbf{Answer}\quad
+Explain the reasoning and show calculations where needed. Follow the question
+order in the handout. Verify and summarize any AI-assisted material before use.
+
+\section{References}
+Use a consistent citation style and cite sources in the text, for example
+Ref.~\cite{replace-source}. Replace the illustrative entry below with a source
+actually consulted. Remove this section and its citations if no references are used.
+\begingroup
+\renewcommand{\section}[2]{}% The numbered References heading is already present.
+\begin{thebibliography}{9}
+\bibitem{replace-source}
+[Author(s)]. [Title]. [Journal or publisher], [year], [volume], [pages or article number].
+[DOI or URL, if applicable].
+\end{thebibliography}
+\endgroup
+
+% Submission attachments. Uncomment after placing your own PDFs in this folder.
+% The departmental PDF requires the report, pre-lab report, and raw records in one PDF.
+% Add \usepackage{pdfpages} to the preamble before enabling the following lines.
+% \clearpage
+% \includepdf[pages=-]{prelab.pdf}
+% \includepdf[pages=-]{raw-records.pdf}
+\end{document}
