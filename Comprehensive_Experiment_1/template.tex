@@ -29,12 +29,6 @@
 \setlist[enumerate]{label=(\arabic*),leftmargin=2em,itemsep=3pt,topsep=4pt}
 \hypersetup{pdftitle={Laboratory Report Template},pdfauthor={},pdfsubject={Reusable laboratory report template}}
 
-\fancypagestyle{cover}{%
-    \fancyhf{}
-    \fancyhead[C]{\bfseries\fontsize{10}{12}\selectfont
-        \InstitutionName\\\DepartmentName}
-    \renewcommand{\headrulewidth}{0.4pt}
-}
 \setlength{\headheight}{26pt}
 \setlength{\headsep}{16pt}
 
@@ -57,8 +51,20 @@
 %                           封面部分开始 / COVER START
 % ==============================================================================
 % Editable reconstruction of the cover in Lab report template.docx.
+\hypersetup{pageanchor=false}
+\begingroup
+\newgeometry{margin=2.54cm,headheight=26pt,headsep=16pt}
+\setlength{\headwidth}{\textwidth}
+\fancypagestyle{cover}{%
+    \fancyhf{}
+    \fancyhead[C]{\bfseries\fontsize{10}{12}\selectfont
+        \InstitutionName\\\DepartmentName}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
 \begin{titlepage}
     \thispagestyle{cover}
+    \linespread{1.25}\selectfont
+    \setlength{\parskip}{4pt}
     \centering
     \vspace*{2.3cm}
     {\bfseries\fontsize{18}{24}\selectfont \CourseTitle\par}
@@ -81,7 +87,10 @@
     \end{flushright}
     \vfill
 \end{titlepage}
+\restoregeometry
+\endgroup
 \setcounter{page}{1}
+\hypersetup{pageanchor=true}
 
 % ==============================================================================
 %                           封面部分结束 / COVER END

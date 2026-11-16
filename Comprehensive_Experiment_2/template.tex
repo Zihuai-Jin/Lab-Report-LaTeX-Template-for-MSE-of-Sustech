@@ -34,6 +34,8 @@
 \renewcommand{\headrulewidth}{0pt}
 
 % ---------- Fill in these fields ----------
+\newcommand{\InstitutionName}{South University of Science and Technology of China}
+\newcommand{\DepartmentName}{Department of Materials science and Engineering}
 \newcommand{\CourseName}{Course Name}
 \newcommand{\ExperimentNumber}{X}
 \newcommand{\ExperimentTitle}{Experiment Title}
@@ -49,39 +51,47 @@
 % ==============================================================================
 %                           封面部分开始 / COVER START
 % ==============================================================================
+% Editable reconstruction of the cover in Lab report template.docx.
 \hypersetup{pageanchor=false}
+\begingroup
+\newgeometry{margin=2.54cm,headheight=26pt,headsep=16pt}
+\setlength{\headwidth}{\textwidth}
+\fancypagestyle{cover}{%
+    \fancyhf{}
+    \fancyhead[C]{\bfseries\fontsize{10}{12}\selectfont
+        \InstitutionName\\\DepartmentName}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
 \begin{titlepage}
-\thispagestyle{fancy}
-\fancyfoot[C]{}
-% Cover layout and field order follow Lab report template.docx.
-\fancyhead[C]{\fontsize{10.5pt}{12pt}\selectfont\bfseries
- South University of Science and Technology of China\\
- Department of Materials science and Engineering}
-\vspace*{1.1cm}
-\begin{center}
-{\fontsize{18pt}{24pt}\selectfont\bfseries \CourseName\par}
-\vspace{0.8cm}
-{\fontsize{18pt}{24pt}\selectfont\bfseries
- Lab \ExperimentNumber: \ExperimentTitle\par}
-\end{center}
-\vspace{3cm}
-\noindent\hfill
-\begin{minipage}{0.58\textwidth}
-\raggedright
-\fontsize{14pt}{22pt}\selectfont\bfseries
-Class No.: \ClassNumber\par
-Name list number: \ListNumber\par
-\vspace{1.3cm}
-Name: \StudentName\par
-Student ID: \StudentID\par
-Team member: \TeamMembers\par
-Date of experiment: \ExperimentDate\par
-Date of submission: \SubmissionDate\par
-\end{minipage}
-\vfill
+    \thispagestyle{cover}
+    \linespread{1.25}\selectfont
+    \setlength{\parskip}{4pt}
+    \centering
+    \vspace*{2.3cm}
+    {\bfseries\fontsize{18}{24}\selectfont \CourseName\par}
+    \vspace{1.7cm}
+    {\bfseries\fontsize{16}{22}\selectfont Lab \ExperimentNumber: \ExperimentTitle\par}
+    \vspace{4.4cm}
+    \begin{flushright}
+    \begin{minipage}{0.60\textwidth}
+        \raggedright
+        \bfseries\fontsize{14}{21}\selectfont
+        Class No.: \ClassNumber\par
+        Name list number: \ListNumber\par
+        \vspace{1.5cm}
+        Name: \StudentName\par
+        Student ID: \StudentID\par
+        Team member: \TeamMembers\par
+        Date of experiment: \ExperimentDate\par
+        Date of submission: \SubmissionDate\par
+    \end{minipage}
+    \end{flushright}
+    \vfill
 \end{titlepage}
-\hypersetup{pageanchor=true}
+\restoregeometry
+\endgroup
 \setcounter{page}{1}
+\hypersetup{pageanchor=true}
 
 % ==============================================================================
 %                           封面部分结束 / COVER END
