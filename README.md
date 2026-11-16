@@ -62,6 +62,10 @@ xelatex -interaction=nonstopmode -halt-on-error template.tex
 
 模板优先使用 Times New Roman，未安装时回退至 TeX Gyre Termes；正式提交时请使用课程要求的字体。
 
+## VS Code 工作区配置
+
+[`.vscode/settings.json`](.vscode/settings.json) 中的 LaTeX Workshop 设置及 `[latex]` 编辑器设置仅对当前工作区生效，不修改全局配置。使用时请在 VS Code 中打开本仓库根目录，并安装 **LaTeX Workshop** 扩展（`James-Yu.latex-workshop`）；LaTeX 编译环境仍需按上文单独安装。
+
 ## 填写说明
 
 1. **封面**：修改 `template.tex` 顶部的课程、实验编号与名称、姓名、学号、组员、日期等字段；如模板包含班级和名单序号，也需填写。
